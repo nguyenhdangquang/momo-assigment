@@ -1,0 +1,85 @@
+.rough-information-wrapper {
+  @apply grid grid-cols-2;
+
+  .information-block {
+    @apply pr-5;
+
+    .title-block {
+      .title {
+        @apply title-txt w-6/12 text-white bg-purple-200 pl-2 my-5;
+      }
+    }
+
+    .two-field {
+      @apply grid grid-cols-2 gap-4;
+
+      .input-field {
+        @apply w-full h-[40px];
+      }
+    }
+    .single-field {
+      @apply w-full grid grid-cols-1;
+
+      .input-field {
+        @apply w-full h-[40px];
+      }
+    }
+    .field-block {
+      @apply flex my-2 w-full;
+      img {
+        @apply mr-2
+      }
+    }
+  }
+
+  .banner-block {
+    @apply w-[739px] h-[445px] rounded-tl-none rounded-br-none rounded-[64px] border-[1px] border-dashed flex justify-center items-center text-2xl font-bold text-blue-900 cursor-pointer;
+
+    img {
+      @apply mr-2;
+    }
+  }
+}
+
+.create-form-wrapper {
+  @apply w-full grid grid-cols-2;
+
+  .description-block {
+    .text-area-description {
+      @apply w-full h-[100px] rounded pl-2 pt-2;
+      &::placeholder {
+        @apply font-light;
+      }
+    }
+  }
+
+  .setting-block {
+    @apply bg-white p-4 rounded-[20px] mt-5;
+
+    .setting-title-block {
+      @apply bg-yellow-200 w-[146px] h-[60px] mb-3 flex items-center justify-center;
+    }
+
+    .checkbox-custom {
+      @apply w-[20px] h-[20px] bg-white rounded-[6px] border-solid border-[1px] mt-2 mr-5 absolute;
+      top: -7px;
+    }
+    .label {
+      @apply left-8 absolute w-[500px] top-0;
+    }
+    .radio-button-custom {
+      @apply w-[20px] h-[20px] bg-white border-solid border-[1px] mt-2 mr-5;
+    }
+    .tag {
+      @apply rounded-[16px] w-[118px] h-[28px] flex justify-between items-center bg-gray-100 px-2 my-4;
+    }
+    .tag-not-pick {
+      @apply rounded-[16px] w-[118px] h-[28px] flex justify-between items-center bg-gray-100 px-2 mr-2 mt-2;
+    }
+  }
+
+  .create-social-btn {
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    @apply w-full py-2 my-4 mb-20 h-[48px] bg-yellow-200 border-[1px] border-solid rounded-[8px] text-purple-200 font-semibold;
+  }
+}
