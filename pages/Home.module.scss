@@ -35,10 +35,26 @@
   .banner-block {
     @apply w-[739px] h-[445px] rounded-tl-none rounded-br-none rounded-[64px] border-[1px] border-dashed flex justify-center items-center text-2xl font-bold text-blue-900 cursor-pointer;
 
-    img {
-      @apply mr-2;
+    .banner {
+      @apply mr-0;
     }
   }
+}
+
+.modal-context {
+  @apply h-4/6 w-6/12;
+}
+
+.banner-wrapper {
+  @apply grid grid-cols-3 gap-2;
+}
+
+.image-banner {
+  @apply w-[500px] h-auto cursor-pointer;
+}
+
+.save-change-modal-btn {
+  @apply bg-yellow-200 p-4 rounded text-purple-200 font-bold ml-4 h-[40px] flex items-center justify-center;
 }
 
 .create-form-wrapper {
@@ -71,10 +87,10 @@
       @apply w-[20px] h-[20px] bg-white border-solid border-[1px] mt-2 mr-5;
     }
     .tag {
-      @apply rounded-[16px] w-[118px] h-[28px] flex justify-between items-center bg-gray-100 px-2 my-4;
+      @apply rounded-[16px] w-[118px] h-[28px] flex justify-between items-center bg-gray-100 px-2 my-4 mr-2 cursor-pointer;
     }
     .tag-not-pick {
-      @apply rounded-[16px] w-[118px] h-[28px] flex justify-between items-center bg-gray-100 px-2 mr-2 mt-2;
+      @apply rounded-[16px] w-[118px] h-[28px] flex justify-between items-center bg-gray-100 px-2 mr-2 mt-2 cursor-pointer;
     }
   }
 
