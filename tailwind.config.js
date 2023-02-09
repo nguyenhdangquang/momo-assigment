@@ -15,6 +15,12 @@ module.exports = {
       "5xl": "3rem",
       "6xl": "4rem",
     },
+    minWidth: {
+      '1/2': '50%'
+    },
+    maxWidth: {
+      '1/2': '50%'
+    },
     fontFamily: {
       neueGrotesk: ["Neue Haas Grotesk Display Pro", "sans-serif"],
     },
