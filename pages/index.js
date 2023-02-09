@@ -3,7 +3,7 @@ import { Main } from '../components/layouts';
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import { useDataContext } from '../contexts';
-
+import {useRouter} from "next/router";
 import classes from './Home.module.scss';
 
 const banners = ['https://supermomos-app-resources-us.s3.amazonaws.com/Images/SocialBanner/banner_1.jpg',
@@ -18,6 +18,7 @@ const banners = ['https://supermomos-app-resources-us.s3.amazonaws.com/Images/So
     'https://supermomos-app-resources-us.s3.amazonaws.com/Images/SocialBanner/banner_10.jpg']
 
 export default function Home() {
+    const route = useRouter();
 
     const [show, setShow] = React.useState(false);
     const [tagPick, setTagPick] = React.useState([{
@@ -38,6 +39,7 @@ export default function Home() {
     const [bannerTmp, setBannerTmp] = React.useState('');
     const [body, setBody] = React.useState({
         title: '',
+        date: '',
         startAt: '',
         venue: '',
         capacity: 0,
@@ -46,13 +48,12 @@ export default function Home() {
         isManualApprove: false,
         privacy: '',
         banner: '',
-        tags: []
+        tags: ['Engineering']
     });
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleCreateBodyParam = (type, value) => {
         const bodyCloned = body;
-
         if (type === 'isManualApprove') {
             bodyCloned[`${type}`] = !bodyCloned[`${type}`];
         } else {
@@ -77,21 +78,25 @@ export default function Home() {
 
     const handleSetBanner = () => {
         setBanner(bannerTmp);
-        handleCreateBodyParam('banner', banner)
+        handleCreateBodyParam('banner', bannerTmp)
         setShow(false)
     }
 
     const handleCreateSocial = () => {
-        console.log('body', body)
+        localStorage.removeItem("social_detail_data");
+        localStorage.removeItem("social_detail_data_date");
+
         //calling api
         axios.post('https://1p8s3jhf8j.execute-api.us-east-1.amazonaws.com/Supermomos/interview/social', body)
             .then(function (response) {
                 // handle success
-                console.log(response);
                 dispatch({
                     action: 'CREATE_SOCIAL_PAGE',
                     payload: response.data
                 })
+                localStorage.setItem("social_detail_data", JSON.stringify(response.data));
+                localStorage.setItem("social_detail_data_date", body.date);
+                route.push('/social')
             })
             .catch(function (error) {
                 // handle error
@@ -108,7 +113,7 @@ export default function Home() {
               <div className={classes['rough-information-wrapper']}>
                   <div className={classes['information-block']}>
                       <div className={classes['title-block']}>
-                          <p className={classes['title']}>United Event</p>
+                          <input type="text" name="name"  className={classes['title']} placeholder="United Event" onChange={(e) => handleCreateBodyParam('title', e.currentTarget.value)}/>
                       </div>
 
                       <div className={classes['two-field']}>
@@ -117,7 +122,7 @@ export default function Home() {
                                   src={`/icons/schedule.svg`}
                                   alt="schedule-supermomos"
                               />
-                              <input type="text" name="name" className={classes['input-field']} onChange={(e) => handleCreateBodyParam('title', e.currentTarget.value)}/>
+                              <input type="text" name="date" className={classes['input-field']} onChange={(e) => handleCreateBodyParam('date', e.currentTarget.value)}/>
                           </div>
                           <div className={classes['field-block']}>
                               <img

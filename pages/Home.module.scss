@@ -6,7 +6,7 @@
 
     .title-block {
       .title {
-        @apply title-txt w-6/12 text-white bg-purple-200 pl-2 my-5;
+        @apply title-txt max-w-1/2 text-white bg-purple-200 pl-2 my-5;
       }
     }
 
@@ -14,14 +14,14 @@
       @apply grid grid-cols-2 gap-4;
 
       .input-field {
-        @apply w-full h-[40px];
+        @apply w-full h-[40px] pl-2;
       }
     }
     .single-field {
       @apply w-full grid grid-cols-1;
 
       .input-field {
-        @apply w-full h-[40px];
+        @apply w-full h-[40px] pl-2;
       }
     }
     .field-block {
@@ -62,7 +62,7 @@
 
   .description-block {
     .text-area-description {
-      @apply w-full h-[100px] rounded pl-2 pt-2;
+      @apply w-full h-[100px] rounded p-2;
       &::placeholder {
         @apply font-light;
       }
@@ -95,7 +95,7 @@
   }
 
   .create-social-btn {
-    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
     @apply w-full py-2 my-4 mb-20 h-[48px] bg-yellow-200 border-[1px] border-solid rounded-[8px] text-purple-200 font-semibold;
   }
 }
