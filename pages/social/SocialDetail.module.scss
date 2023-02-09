@@ -4,11 +4,9 @@
   .information-block {
     @apply pr-5;
 
-    .title-block {
       .title {
-        @apply title-txt w-3/4 max-w-[590px] text-white bg-purple-200 pl-2 my-5 break-words;
+        @apply title-txt w-3/4 text-white bg-purple-200 px-2 my-5 break-words;
       }
-    }
     .two-field {
       @apply grid grid-cols-2 gap-4;
 
@@ -40,10 +38,14 @@
       @apply mr-2;
     }
   }
+
+  .banner-block-empty {
+    @apply w-5/6 h-full max-h-[445px] rounded-tl-none rounded-br-none rounded-[64px] border border-dashed flex justify-center items-center;
+  }
 }
 
 .create-form-wrapper {
-  @apply w-full;
+  @apply w-full break-words;
   .description-block {
     @apply w-full text-lg font-normal leading-5 text-[#333333];
   }

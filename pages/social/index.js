@@ -11,26 +11,24 @@ export default function Home() {
             <Main>
                 <div className={classes['social-detail-wrapper']}>
                     <div className={classes['information-block']}>
-                        {data?.title && (
-                            <div className={classes['title-block']}>
-                                <p className={classes['title']}>{data.title}</p>
+                            <div className={'max-w-[590px]'}>
+                                <span className={classes['title']}>{data?.title ?? ''}</span>
                             </div>
-                        )}
 
                         <div className={classes['two-field']}>
                                 <div className={classes['field-block']}>
                                     <img
                                         src={`/icons/schedule.svg`}
-                                        alt="schedule-supermomos"
+                                        alt="schedule"
                                     />
-                                    <span className={classes['title-block']}>{date}</span>
+                                    <span className={classes['title-block']}>{date ?? ''}</span>
                                 </div>
                                 <div className={classes['field-block']}>
                                     <img
                                         src={`/icons/clock.svg`}
-                                        alt="clock-supermomos"
+                                        alt="clock"
                                     />
-                                    <span className={classes['title-block']}>{data?.startAt}</span>
+                                    <span className={classes['title-block']}>{data?.startAt ?? ''}</span>
                                 </div>
                         </div>
 
@@ -38,9 +36,9 @@ export default function Home() {
                                 <div className={classes['field-block']}>
                                     <img
                                         src={`/icons/location.svg`}
-                                        alt="location-supermomos"
+                                        alt="location"
                                     />
-                                    <span className={classes['title-block-smail']}>{data?.venue}</span>
+                                    <span className={classes['title-block-smail']}>{data?.venue ?? ''}</span>
                                 </div>
                         </div>
 
@@ -48,21 +46,21 @@ export default function Home() {
                                 <div className={classes['field-block']}>
                                     <img
                                         src={`/icons/ppl.svg`}
-                                        alt="ppl-supermomos"
+                                        alt="capacity"
                                     />
-                                    <span className={classes['title-block-smail']}>{data?.capacity} people</span>
+                                    {data?.capacity && <span className={classes['title-block-smail']}>{data.capacity} people</span>}
                                 </div>
                                 <div className={classes['field-block']}>
                                     <img
                                         src={`/icons/cost.svg`}
-                                        alt="cost-supermomos"
+                                        alt="cost"
                                     />
-                                    <span className={classes['title-block-smail']}>${data?.price}</span>
+                                    {data?.price && <span className={classes['title-block-smail']}>${data.price}</span>}
                                 </div>
                         </div>
                     </div>
 
-                    {data?.banner && (
+                    {data?.banner ? (
                         <div>
                             <img
                                 className={classes['banner-block']}
@@ -70,12 +68,19 @@ export default function Home() {
                                 alt="banner"
                             />
                         </div>
+                    ) : (
+                        <div className={classes['banner-block-empty']}>
+                            <img
+                                src={'/icons/banner.svg'}
+                                alt="banner-empty"
+                            />
+                        </div>
                     )}
 
                     {data?.description && (
                         <div className={classes['create-form-wrapper']}>
                             <div className="col-span-1">
-                                <p className={classes['description-block']}>{data.description}</p>
+                                <span className={classes['description-block']}>{data.description}</span>
                             </div>
                         </div>
                     )}
